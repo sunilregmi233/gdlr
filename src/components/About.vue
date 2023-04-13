@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .about
   .row > div
     margin: 100px

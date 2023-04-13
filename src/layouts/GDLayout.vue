@@ -2,26 +2,26 @@
 <q-layout view="hHh Lpr lFF" >
   <div class="relative-position ">
     <q-header elevated class="transparent">
-      <div :class="visibleClass" class="nav"> 
-        <q-toolbar class="">
-      <q-avatar class="logo-img">
-        <img 
-        v-scroll-fire="bounceImage" 
-        src="/images/GD Labs Logo Oct 1.png"
-        class="q-ml-lg"
-        >
-      </q-avatar>
-        <q-btn flat label="GDLS" class="text-h6 text-weight-bold" to="/" />
-        <q-space />
-        <q-tabs v-model="tab" shrink stretch class="q-ma-lg flex text-bold">
-          <q-route-tab name="tab1" label="About" @click="scrollToElement('id_about_us');" />
-          <q-route-tab name="tab2" label="Servicess" to="/services" />
-          <q-route-tab name="tab2" label="Projects" to="/projects" />
-          <q-route-tab name="tab2" label="Team" to="/Team" />
-          <q-route-tab name="tab4" label="BLOG" to="/blog" />
-          <q-route-tab name="tab3" label="CONTACT" to="/contact" />
-        </q-tabs>
-    </q-toolbar>
+      <div :class="visibleClass" class="flex"> 
+        <q-toolbar class="nav">
+          <q-avatar class="logo-img">
+            <img 
+            v-scroll-fire="bounceImage" 
+            src="/images/GD Labs Logo Oct 1.png"
+            class="q-ml-lg"
+            >
+          </q-avatar>
+          <q-btn flat label="GDLS" class="text-h6 text-weight-bold" to="/" />
+          <q-space />
+          <q-tabs v-model="tab" shrink stretch class="q-ma-lg flex text-bold">
+            <q-route-tab name="tab1" label="About" @click="scrollToElement('id_about_us');" />
+            <q-route-tab name="tab2" label="Servicess" @click="scrollToServices('id_services');" />
+            <q-route-tab name="tab2" label="Projects" to="/projects" />
+            <q-route-tab name="tab2" label="Team" to="/Team" />
+            <q-route-tab name="tab4" label="BLOG" to="/blog" />
+            <q-route-tab name="tab3" label="CONTACT" to="/contact" />
+          </q-tabs>
+        </q-toolbar>
       </div>
     </q-header>
     </div>
@@ -39,7 +39,7 @@
       >
         <q-parallax
           src="/images/3.png"
-          :height="200"
+          :height="300"
         >
         <q-card-section class="card-section text-white bg-info" 
           style="left:-39.5rem; position:relative;">
@@ -52,9 +52,12 @@
         </q-parallax>
       </q-card>
     </div>
-    <div class="card">
-    <BaseCard> </BaseCard>
+    <div id="id_services" class="card">
+    
+      <div id="id_services"><BaseCard> </BaseCard></div>
     </div>
+    <hr>
+    
     <div class="caro-card">
       <BaseCaro/>
     </div>
@@ -78,14 +81,30 @@ export default {
     function scrollToElement (id) {
       let el = document.getElementById(id)
       const target = getScrollTarget(el)
-      const offset = el.offsetTop +3
+      const offset = el.offsetTop 
+      const duration = 1000
+      setVerticalScrollPosition(target, offset, duration)
+    }
+    function scrollToServices (id) {
+      let el = document.getElementById(id)
+      const target = getScrollTarget(el)
+      const offset = el.offsetTop - 200
       const duration = 1000
       setVerticalScrollPosition(target, offset, duration)
     }
 
     return {
       visible,
+      bounceImage (el) {
+        el.classList.add('animate-bounce')
+        setTimeout(() => {
+          if (document.body.contains(el)) {
+            el.classList.remove('animate-bounce')
+          }
+        }, 2000)
+      },
       scrollToElement,
+      scrollToServices,
       visibleClass: computed(
         () => `
           bg-${visible.value ? 'secondary' : 'info'}
@@ -102,6 +121,10 @@ export default {
 </script>
 
 <style lang="scss" >
+.nav {
+  position: relative;
+
+}
 .about {
   height: 100vh;
   position: relative;
@@ -112,6 +135,7 @@ export default {
 .card {
   position: relative;
   height: 100vh;
+  top: 10rem;
 }
 
 .caro-card {
@@ -154,6 +178,8 @@ export default {
 .para {
   position: relative;
   z-index: -1;
+  height: 20vh;
+  margin: 30px 0px 0px 0px;
 
 }
 
@@ -171,4 +197,13 @@ of rain using keyframes*/
   }
 }
 
+.animate-bounce{
+  animation: q-bounce 1s linear 
+}
+@keyframes q-bounce { 
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg)}
+  100% {
+    transform: rotate3d(0, 0, 1, 360deg)}
+}
 </style>
