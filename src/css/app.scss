@@ -1,0 +1,14 @@
+// app global css in SCSS form
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#app { height: 100% }
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+
