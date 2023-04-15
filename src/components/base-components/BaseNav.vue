@@ -1,21 +1,21 @@
 <template>
-    <q-toolbar class="">
+    <q-toolbar class="nav">
       <q-avatar class="logo-img">
         <img 
         v-scroll-fire="bounceImage" 
         src="/images/GD Labs Logo Oct 1.png"
-        class="q-ml-lg"
+        class="q-ml-lg "
         >
       </q-avatar>
-        <q-btn flat label="GDLS" class="text-h6 text-weight-bold" to="/" />
+        <q-btn flat label="GDLS" class="text-h4" to="/" />
         <q-space />
-        <q-tabs v-model="tab" shrink stretch class="q-ma-lg flex text-bold">
-          <q-route-tab name="tab1" label="About" @click="scrollToElement('id_about_us');"  />
+        <q-tabs v-model="tab"  shrink stretch >
+          <q-route-tab name="tab1" label="About" to="/"  />
           <q-route-tab name="tab2" label="Servicess" to="/services" />
-          <q-route-tab name="tab2" label="Projects" to="/projects" />
-          <q-route-tab name="tab2" label="Team" to="/Team" />
-          <q-route-tab name="tab4" label="BLOG" to="/blog" />
-          <q-route-tab name="tab3" label="CONTACT" to="/contact" />
+          <q-route-tab name="tab3" label="Projects" to="/projects" />
+          <q-route-tab name="tab4" label="Team" to="/Team" />
+          <q-route-tab name="tab5" label="BLOG" to="/blog" />
+          <q-route-tab name="tab6" label="CONTACT" to="/contact" />
         </q-tabs>
     </q-toolbar>
     
@@ -46,6 +46,12 @@ export default defineComponent ({
 </script>
 
 <style lang="sass" scoped>
+.logo-img
+  height: 8rem
+  width: 8rem
+.nav
+  position: relative
+  height: 8rem
 
 .animate-bounce
   animation: q-bounce 1s linear 

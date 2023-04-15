@@ -48,6 +48,6 @@ export default {
 
 <style lang="sass" scoped>
 .example-item
-  height: 290px
-  width: 290px
+  height: 400px
+  width: 400px
 </style>

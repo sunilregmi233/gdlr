@@ -11,9 +11,9 @@
             class="q-ml-lg"
             >
           </q-avatar>
-          <q-btn flat label="GDLS" class="text-h6 text-weight-bold" to="/" />
+          <q-btn flat label="GDLS" class="text-h4 text-weight-bold" to="/" />
           <q-space />
-          <q-tabs v-model="tab" shrink stretch class="q-ma-lg flex text-bold">
+          <q-tabs v-model="tab" shrink stretch class="q-ma-lg ">
             <q-route-tab name="tab1" label="About" @click="scrollToElement('id_about_us');" />
             <q-route-tab name="tab2" label="Servicess" @click="scrollToServices('id_services');" />
             <q-route-tab name="tab2" label="Projects" to="/projects" />
@@ -121,10 +121,7 @@ export default {
 </script>
 
 <style lang="scss" >
-.nav {
-  position: relative;
 
-}
 .about {
   height: 100vh;
   position: relative;

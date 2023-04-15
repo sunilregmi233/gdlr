@@ -10,8 +10,8 @@ import routes from './routes'
  * async/await or return a Promise which resolves
  * with the Router instance.
  */
-
-export default route(function (/* { store, ssrContext } */) {
+import { userAuthStore } from '../stores/auth/auth';
+export default route(function ({ store, /*ssrContext*/ }) {
   const createHistory = process.env.SERVER
     ? createMemoryHistory
     : (process.env.VUE_ROUTER_MODE === 'history' ? createWebHistory : createWebHashHistory)
@@ -25,6 +25,19 @@ export default route(function (/* { store, ssrContext } */) {
     // quasar.conf.js -> build -> publicPath
     history: createHistory(process.env.VUE_ROUTER_BASE)
   })
+  Router.beforeEach( (to,  next) => {
+    // redirect to login page if not logged in and trying to access a restricted page
+    const publicPages = ['/admin/login', '/'];
+    const authRequired = !publicPages.includes(to.path);
+    const authStore = userAuthStore();
+
+    if (authRequired && !authStore.user) {
+        return {
+            path: '/admin/login',
+            query: { returnUrl: to.href }
+        };
+    }
+});
 
   return Router
 })

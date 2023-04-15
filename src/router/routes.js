@@ -1,18 +1,8 @@
 
 const routes = [
-  // {
-  //   path: '/',
-  //   component: () => import('layouts/MainLayout.vue'),
-  //   children: [
-  //     { path: '', component: () => import('pages/IndexPage.vue') }
-  //   ]
-  // },
   {
-    path: '/new',
-    // component: () => import('../layouts/PortfolioLayout.vue'),
-    // children: [
-    //   { path: '', component: () => import('pages/IndexPage.vue') }
-    // ]
+    path: '/admin/dashboard',
+    component: () => import('pages/admin/index.vue'),
   },
   {
     path: '/',
@@ -26,6 +16,11 @@ const routes = [
   //   component: () => import('../pages/About/index.vue'),
     
   // },
+  {
+    path: '/admin/login',
+    component: () => import('../pages/Auth/Login.vue'),
+    
+  },
   {
     path: '/services',
     component: () => import('../pages/ErrorNotFound.vue'),

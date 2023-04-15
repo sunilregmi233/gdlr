@@ -1,16 +1,15 @@
 <template>
-    <div class="footer text-white">
+    <div class="footer  q-pa-md text-white">
         <div class=footer-image>
         <q-img
-        class=footer-image
           src="/images/gd.jpg"
-          style="height: 250px; width: 250px;"
+          style="height: 200px; width: 200px;"
         >
         
         </q-img>
         </div>
-        <div class="footer">
-          <h4>@ Copyright. Green Decision Labs and research</h4>
+        <div class="footer text-h5 q-pa-lg">
+          @ Copyright. Green Decision Labs and research
         
         <img
             v-scroll-fire="bounceImage"
@@ -53,10 +52,10 @@ export default  {
 .footer 
   background: $info
   height: 30vh
-  font-size: 5rem
   display: flex
   align-items: center
   justify-content: center
+  
 
 
 
