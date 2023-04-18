@@ -10,12 +10,10 @@
         </div>
         
         <div class="col bg-white" style="border-radius: 10%;">
-          <div class="q-pa-xl text-h4 flex justify-center">
-            Green Decision Labs and Research
+          <div class="q-pa-xl text-h4 text-weight-bold flex justify-center">
+            Login to post a Blog!!!
           </div>
-          <div class="text-h5 text-green flex justify-center">
-            Admin Login
-          </div>
+          
           <div class="login flex justify-center">
               <div class="column q-gutter-md login-inner">
                 <q-input filled  v-model="username" label="Username">
@@ -28,7 +26,7 @@
                     <q-icon name="close" @click="text = ''" class="cursor-pointer" />
                   </template>
                 </q-input>
-                <q-btn color="info" @click="login" label="Login" />
+                <q-btn color="secondary" @click="login" label="Login" />
             </div>
           </div>
         </div>
@@ -73,7 +71,7 @@ export default ({
 <style lang="sass" scoped>
 .img-bg
   position: relative
-  background: linear-gradient(#43E67A, #030C00)
+  background: $secondary
 
 .q-img
   position: relative

@@ -1,8 +1,8 @@
 {
   "name": "package.json",
   "version": "0.0.1",
-  "description": "GDL&R portfolio project",
-  "productName": "GDL&R",
+  "description": "A portfolio project",
+  "productName": "SU.RE",
   "author": "sunilregmi233 <sunilregmi233@gmail.com>",
   "private": true,
   "scripts": {

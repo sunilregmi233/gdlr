@@ -1,22 +1,24 @@
 <template>
-    <div class="footer  q-pa-md text-white">
+    <div class="footer">
+      <div class="footer-content q-pa-md text-white">
         <div class=footer-image>
-        <q-img
+        <!-- <q-img
           src="/images/gd.jpg"
           style="height: 200px; width: 200px;"
         >
         
-        </q-img>
+        </q-img> -->
         </div>
-        <div class="footer text-h5 q-pa-lg">
-          @ Copyright. Green Decision Labs and research
+        <div class="footer flex justify-center text-h5 q-pa-lg">
+          @ Copyright. Sunil Regmi
         
-        <img
+        <!-- <img
             v-scroll-fire="bounceImage"
             src="/images/GD Labs Logo Oct 1.png"
             style="height: 100px; width: 100px;"
-        >
+        > -->
         </div>
+    </div>
     </div>
 </template>
 
@@ -50,11 +52,9 @@ export default  {
 .footer-image
   left: -20rem
 .footer 
-  background: rgb(2,0,36)
-  height: 100vh - $nav-height
-  display: flex
-  align-items: center
-  justify-content: center
+  background: linear-gradient(90deg, rgba(42,2,23,1) 0%, rgba(122,163,171,1) 99%)
+
+
   
 
 

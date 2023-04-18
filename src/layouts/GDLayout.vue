@@ -4,12 +4,11 @@
   <q-header elevated class="transparent  header">
     <div :class="visibleClass" class="flex"> 
       <q-toolbar class="nav">
-        <q-avatar class="logo-img">
+        <q-avatar class="logo-img" to="/">
           <img 
           v-scroll-fire="bounceImage" 
           src="/images/logo.png"
           class="q-ml-lg"
-          to="/"
           >
         </q-avatar>
         <q-space />
@@ -28,6 +27,7 @@
   <div class="example-area  scroll">
    <div class="input-wrapper text-white">
       <p>Hello, I am <span class="time-of-day"></span>!</p>
+      <p>This website is under <br><span class="time-of-day1"></span>!</p>
       <span class="placeholder"></span>
     </div>
 
@@ -114,7 +114,7 @@ export default {
       visibleClass: computed(
         () => `
           bg-${visible.value ? 'secondary' : 'secondary'}
-          text-${visible.value ? 'black' : 'blue'}
+          text-${visible.value ? 'black' : 'black'}
           text-weight-${visible.value ? 'bolder' : 'bolder'}
           `
       ),
@@ -135,14 +135,25 @@ export default {
 	&::before { font-weight: 600; }
 	@include typed(
 		" Sunil Regmi",
-		2,
+		1,
+		(caret-width: 2px, caret-space: 2px)
+	);
+}
+.time-of-day1 {
+	padding: 0 0 0 3px;
+  background: rgb(42,2,23);
+  background: linear-gradient(90deg, rgba(42,2,23,1) 0%, rgba(122,163,171,1) 99%);
+	&::before { font-weight: 600; }
+	@include typed(
+		"DEVELOPMENT",
+		1,
 		(caret-width: 2px, caret-space: 2px)
 	);
 }
 .input-wrapper {
   top: 16rem;
   margin: 0px 0px 0px 100px;
-  position: relative;
+  position: absolute;
   display: block;
   font-family: monospace;
   font-size: 3rem;
@@ -181,25 +192,11 @@ export default {
   background: linear-gradient(90deg, rgba(1,2,20,1) 0%, rgba(185,255,252,1) 99%);
   background-size: cover;
   background-position: center;
-  animation: color-change 100s linear infinite;
-  animation-delay: 10s;
-
 }
 
-.example-area:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  //background-image: url('https://media.geeksforgeeks.org/wp-content/uploads/20200828184719/rain-300x300.png');
-  animation: rain 1s linear infinite;
-  opacity: 0;
-}
+
 
 .example-filler{
-  max-height: 100%;
   height: 100vh;
 }
 .para {
@@ -209,21 +206,6 @@ export default {
   margin: 30px 0px 0px 0px;
 
 }
-
-  /* just changing the position of image
-of rain using keyframes*/
-@keyframes rain {
-  0% {
-      background-position: 0 0;
-      opacity: 1;
-  }
-
-  100% {
-      background-position: 8% 80%;
-      opacity: 1;
-  }
-}
-
 .animate-bounce{
   animation: q-bounce 1s linear 
 }
