@@ -11,7 +11,7 @@
             class="q-ml-lg"
             >
           </q-avatar>
-          <q-btn flat label="GDLS" class="text-h4 text-weight-bold" to="/" />
+          <q-btn flat label="SU.RE" class="text-h4 text-weight-bold" to="/" />
           <q-space />
           <q-tabs v-model="tab" shrink stretch class="q-ma-lg ">
             <q-route-tab name="tab1" label="About" @click="scrollToElement('id_about_us');" />

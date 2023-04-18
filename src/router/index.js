@@ -26,18 +26,20 @@ export default route(function ({ store, /*ssrContext*/ }) {
     history: createHistory(process.env.VUE_ROUTER_BASE)
   })
   Router.beforeEach( (to,  next) => {
-    // redirect to login page if not logged in and trying to access a restricted page
-    const publicPages = ['/admin/login', '/'];
-    const authRequired = !publicPages.includes(to.path);
-    const authStore = userAuthStore();
+      // redirect to login page if not logged in and trying to access a restricted page
+      const publicPages = ['/admin/login', '/'];
+      const authRequired = !publicPages.includes(to.path);
+      const authStore = userAuthStore();
+      console.log(authStore.isAuth)
 
-    if (authRequired && !authStore.user) {
-        return {
-            path: '/admin/login',
-            query: { returnUrl: to.href }
-        };
-    }
-});
+      if (authRequired && !authStore.isAuth) {
+          return {
+              path: '/admin/login',
+              query: { returnUrl: to.href }
+          };
+      }
+  });
+   
 
   return Router
 })

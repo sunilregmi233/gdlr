@@ -13,7 +13,9 @@
 
 
 
+import {LocalStorage,SessionStorage} from 'quasar'
 
 
-export default { config: {} }
+
+export default { config: {},plugins: {LocalStorage,SessionStorage} }
 
