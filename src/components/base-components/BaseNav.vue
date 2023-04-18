@@ -3,7 +3,7 @@
       <q-avatar class="logo-img">
         <img 
         v-scroll-fire="bounceImage" 
-        src="/images/GD Labs Logo Oct 1.png"
+        src="/images/logo.png"
         class="q-ml-lg "
         >
       </q-avatar>
@@ -51,7 +51,7 @@ export default defineComponent ({
   width: 8rem
 .nav
   position: relative
-  height: 8rem
+  height: 12vh
 
 .animate-bounce
   animation: q-bounce 1s linear 

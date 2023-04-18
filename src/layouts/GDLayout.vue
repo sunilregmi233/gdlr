@@ -1,69 +1,75 @@
 <template>
 <q-layout view="hHh Lpr lFF" >
   <div class="relative-position ">
-    <q-header elevated class="transparent">
-      <div :class="visibleClass" class="flex"> 
-        <q-toolbar class="nav">
-          <q-avatar class="logo-img">
-            <img 
-            v-scroll-fire="bounceImage" 
-            src="/images/GD Labs Logo Oct 1.png"
-            class="q-ml-lg"
-            >
-          </q-avatar>
-          <q-btn flat label="SU.RE" class="text-h4 text-weight-bold" to="/" />
-          <q-space />
-          <q-tabs v-model="tab" shrink stretch class="q-ma-lg ">
-            <q-route-tab name="tab1" label="About" @click="scrollToElement('id_about_us');" />
-            <q-route-tab name="tab2" label="Servicess" @click="scrollToServices('id_services');" />
-            <q-route-tab name="tab2" label="Projects" to="/projects" />
-            <q-route-tab name="tab2" label="Team" to="/Team" />
-            <q-route-tab name="tab4" label="BLOG" to="/blog" />
-            <q-route-tab name="tab3" label="CONTACT" to="/contact" />
-          </q-tabs>
-        </q-toolbar>
-      </div>
-    </q-header>
+  <q-header elevated class="transparent  header">
+    <div :class="visibleClass" class="flex"> 
+      <q-toolbar class="nav">
+        <q-avatar class="logo-img">
+          <img 
+          v-scroll-fire="bounceImage" 
+          src="/images/logo.png"
+          class="q-ml-lg"
+          to="/"
+          >
+        </q-avatar>
+        <q-space />
+        <q-tabs v-model="tab" shrink stretch class="q-ma-lg ">
+          <q-route-tab name="tab1" label="About" @click="scrollToElement('id_about_us');" />
+          <q-route-tab name="tab2" label="Servicess" @click="scrollToServices('id_services');" />
+          <q-route-tab name="tab2" label="Projects" to="/projects" />
+          <q-route-tab name="tab2" label="Team" to="/Team" />
+          <q-route-tab name="tab4" label="BLOG" to="/blog" />
+          <q-route-tab name="tab3" label="CONTACT" @click="scrollToElement('footer');" />
+        </q-tabs>
+      </q-toolbar>
     </div>
-    <div class="example-area  scroll">
-      <BaseSwiperCard/>
-      <div class="example-filler" >
-        <div v-intersection="onIntersection"/>
-      </div>
+  </q-header>
+  </div>
+  <div class="example-area  scroll">
+   <div class="input-wrapper text-white">
+      <p>Hello, I am <span class="time-of-day"></span>!</p>
+      <span class="placeholder"></span>
     </div>
-    <div id="id_about_us" class="about">
-      <About/>
+
+    <BaseSwiperCard/>
+    <div class="example-filler" >
+      <div v-intersection="onIntersection"/>
     </div>
-    <div class="para">
-      <q-card class=""
+  </div>
+  <div id="id_about_us" class="about">
+    <About/>
+  </div>
+  <div class="para">
+    <q-card class=""
+    >
+      <q-parallax
+        src="/images/3.png"
+        :height="300"
       >
-        <q-parallax
-          src="/images/3.png"
-          :height="300"
-        >
-        <q-card-section class="card-section text-white bg-info" 
-          style="left:-39.5rem; position:relative;">
-          <div class="text-h3  text-weight-bold" >Suscribe for newsletter</div>
-          <q-btn color="green">
-          <q-icon left size="3em" name="map" />
-          <div>Label</div>
-        </q-btn>
-        </q-card-section>
-        </q-parallax>
-      </q-card>
-    </div>
-    <div id="id_services" class="card">
-    
-      <div id="id_services"><BaseCard> </BaseCard></div>
-    </div>
-    <hr>
-    
-    <div class="caro-card">
-      <BaseCaro/>
-    </div>
-    <div class="footer">
-      <BaseFooter/>
-    </div>
+      <q-card-section class="card-section text-white bg-info" 
+        style="left:-39.5rem; position:relative;">
+        <div class="text-h3  text-weight-bold" >Suscribe for newsletter</div>
+        <q-btn color="green">
+        <q-icon left size="3em" name="map" />
+        <div>Label</div>
+      </q-btn>
+      </q-card-section>
+      </q-parallax>
+    </q-card>
+  </div>
+  <div id="id_services" class="services">
+  
+    <div id="id_services"><BaseCard> </BaseCard></div>
+  </div>
+  <hr>
+  
+  <div class="caro-card">
+    <BaseCaro/>
+  </div>
+  <div id="footer" class="footer">
+    <BaseFooter/>
+  </div>
+
 </q-layout>
 </template>
 
@@ -107,8 +113,8 @@ export default {
       scrollToServices,
       visibleClass: computed(
         () => `
-          bg-${visible.value ? 'secondary' : 'info'}
-          text-${visible.value ? 'black' : 'white'}
+          bg-${visible.value ? 'secondary' : 'secondary'}
+          text-${visible.value ? 'black' : 'blue'}
           text-weight-${visible.value ? 'bolder' : 'bolder'}
           `
       ),
@@ -120,7 +126,30 @@ export default {
 }
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped>
+@import '../css/typed';
+.time-of-day {
+	padding: 0 0 0 3px;
+  background: rgb(42,2,23);
+  background: linear-gradient(90deg, rgba(42,2,23,1) 0%, rgba(122,163,171,1) 99%);
+	&::before { font-weight: 600; }
+	@include typed(
+		" Sunil Regmi",
+		2,
+		(caret-width: 2px, caret-space: 2px)
+	);
+}
+.input-wrapper {
+  top: 16rem;
+  margin: 0px 0px 0px 100px;
+  position: relative;
+  display: block;
+  font-family: monospace;
+  font-size: 3rem;
+  width: 50%;
+
+  
+}
 
 .about {
   height: 100vh;
@@ -129,10 +158,10 @@ export default {
   margin: -55px 50px 20px 50px
 
 }
-.card {
+.services {
   position: relative;
-  height: 100vh;
   top: 10rem;
+  height: 100vh;
 }
 
 .caro-card {
@@ -141,14 +170,15 @@ export default {
 }
 
 .logo-img {
-  height: 120px;
-  width: 120px;
+  height: 130px;
+  width: 180px;
   
 }
 
 .example-area {
   position: relative;
-  background-image: url('/images/4.png');
+  background: rgb(1,2,20);
+  background: linear-gradient(90deg, rgba(1,2,20,1) 0%, rgba(185,255,252,1) 99%);
   background-size: cover;
   background-position: center;
   animation: color-change 100s linear infinite;
@@ -163,7 +193,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://media.geeksforgeeks.org/wp-content/uploads/20200828184719/rain-300x300.png');
+  //background-image: url('https://media.geeksforgeeks.org/wp-content/uploads/20200828184719/rain-300x300.png');
   animation: rain 1s linear infinite;
   opacity: 0;
 }

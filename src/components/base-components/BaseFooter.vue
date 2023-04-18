@@ -50,8 +50,8 @@ export default  {
 .footer-image
   left: -20rem
 .footer 
-  background: $info
-  height: 30vh
+  background: rgb(2,0,36)
+  height: 100vh - $nav-height
   display: flex
   align-items: center
   justify-content: center

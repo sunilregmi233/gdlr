@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa">
-  <BaseNav class="bg-info">
+  <BaseNav class="nav">
    </BaseNav>
     <div class="row justify-center q-gutter-sm">
       <div
@@ -47,6 +47,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.nav 
+  background: rgb(1,2,20)
+  background: linear-gradient(90deg, rgba(1,2,20,1) 0%, rgba(185,255,252,1) 99%)
 .example-item
   height: 400px
   width: 400px
