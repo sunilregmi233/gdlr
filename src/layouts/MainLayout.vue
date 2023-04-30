@@ -10,7 +10,7 @@
           <q-route-tab name="tab2" label="Projects" @click="scrollToElement('id_projects'); " />
           <q-route-tab name="tab2" label="Team" to="/Team" />
           <q-route-tab name="tab4" label="BLOG" to="/blog" />
-          <q-route-tab name="tab3" label="CONTACT" @click="scrollToElement('footer');" />
+          <q-route-tab name="tab3" label="CONTACT" @click="scrollToElement('id_contact');" />
         </q-tabs>
         <div id="check">
             <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
@@ -60,12 +60,12 @@
         <Services/>
       </div>
     </div>
-    <div class="body2" id="id_projects">
+    <div class="body2" id="id_contact">
       <div class="container2">
         <Projects/>
       </div>
     </div>
-    <div class="body2" id="id_contact">
+    <div class="body2" id="id_projects">
       <div class="container2">
       </div>
     </div>

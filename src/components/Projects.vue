@@ -1,24 +1,16 @@
 <template >
     <div class="projects">
-        <div class="q-pa-xl pro" style="width: 500px; border: 2px solid black">    
+        <div class="q-pa-lg pro" style="width: 500px; border: 1px solid black">    
             <q-form
                 @submit="onSubmit"
                 @reset="onReset"
                 class="q-gutter-md"
                 >
-                <q-input
-                    filled
-                    v-model="name"
-                    label="Your name *"
-                    hint="Name and surname"
-                    lazy-rules
-                    :rules="[ val => val && val.length > 0 || 'Please type something']"
-                />
+                
                  <q-input
                     filled
                     v-model="name"
-                    label="Your Email *"
-                    hint="Email Address"
+                    label="Your Email Address"
                     lazy-rules
                     :rules="[ val => val && val.length > 0 || 'Please type something']"
                 />
@@ -32,6 +24,13 @@
                     :rules="[
                     val => val !== null && val !== '' || 'Please type contact number',
                     ]"
+                />
+                <q-input
+                    v-model="text"
+                    filled
+                    type="textarea"
+                    label="Type a message"
+
                 />
 
                 <q-toggle v-model="accept" label="I accept the license and terms" />
