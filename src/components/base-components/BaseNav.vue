@@ -1,24 +1,19 @@
 <template>
-    <q-toolbar class="nav">
-      <q-avatar class="logo-img">
-        <img 
-        v-scroll-fire="bounceImage" 
-        src="/images/logo.png"
-        class="q-ml-lg "
-        >
-      </q-avatar>
-        <q-btn flat label="GDLS" class="text-h4" to="/" />
-        <q-space />
-        <q-tabs v-model="tab"  shrink stretch >
-          <q-route-tab name="tab1" label="About" to="/"  />
-          <q-route-tab name="tab2" label="Servicess" to="/services" />
-          <q-route-tab name="tab3" label="Projects" to="/projects" />
-          <q-route-tab name="tab4" label="Team" to="/Team" />
-          <q-route-tab name="tab5" label="BLOG" to="/blog" />
-          <q-route-tab name="tab6" label="CONTACT" to="/contact" />
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fa fa-bars"></i>
+        </label>
+        <label class="logo">SureSoft</label>         
+        <q-tabs v-model="tab" shrink stretch class="tabs ">
+          <q-route-tab name="tab1" label="About" @click="scrollToElement('id_about');" />
+          <q-route-tab name="tab2" label="Servicess" @click="scrollToServices('id_services');" />
+          <q-route-tab name="tab2" label="Projects" to="/projects" />
+          <q-route-tab name="tab2" label="Team" to="/Team" />
+          <q-route-tab name="tab4" label="BLOG" to="/blog" />
+          <q-route-tab name="tab3" label="CONTACT" @click="scrollToElement('footer');" />
         </q-tabs>
-    </q-toolbar>
-    
+      </nav>   
 </template>
 
 <script>
@@ -45,23 +40,7 @@ export default defineComponent ({
 });
 </script>
 
-<style lang="sass" scoped>
-.logo-img
-  height: 8rem
-  width: 8rem
-.nav
-  position: relative
-  height: 12vh
-
-.animate-bounce
-  animation: q-bounce 1s linear 
-
-@keyframes q-bounce 
-  0% 
-    transform: rotate3d(0, 0, 1, 0deg)
-  100% 
-    transform: rotate3d(0, 0, 1, 360deg)
-  
+<style lang="scss" >
 
 
 </style>

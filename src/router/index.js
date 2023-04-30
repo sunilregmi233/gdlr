@@ -27,7 +27,7 @@ export default route(function ({ store, /*ssrContext*/ }) {
   })
   Router.beforeEach( (to,  next) => {
       // redirect to login page if not logged in and trying to access a restricted page
-      const publicPages = ['/admin/login', '/', '/blog'];
+      const publicPages = ['/admin/login', '/', '/blog', '/main', '/test'];
       const authRequired = !publicPages.includes(to.path);
       const authStore = userAuthStore();
       console.log(authStore.isAuth)

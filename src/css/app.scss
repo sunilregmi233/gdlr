@@ -1,14 +1,115 @@
 // app global css in SCSS form
-*{
-  margin: 0;
+
+@import '../css/typed';
+@import '../css/media';
+* {
   padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
   box-sizing: border-box;
 }
-#app { height: 100% }
-html,
+
 body {
-  position: relative;
-  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: white;
+}
+
+nav{
+  position: fixed;
+  background: $info;  
+  width: 100%;
+  z-index: 1;
+}
+
+label.logo {
+font-size: 35px;
+line-height: 80px;
+padding: 0 100px;
+font-weight: bold;
+}
+
+nav .tabs{
+float: right;
+padding: 15px 12px;
+margin-right: 50px;
 }
 
 
+.checkbtn {
+font-size: 30px;
+color: white;
+float: right;
+line-height: 80px;
+margin-right: 40px;
+cursor: pointer;
+}
+
+
+
+// header content :start
+
+// Base card
+
+
+@keyframes animate {
+
+  0%{
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+      border-radius: 0;
+  }
+
+  100%{
+      transform: translateY(-1000px) rotate(720deg);
+      opacity: 0;
+      border-radius: 50%;
+  }
+
+}
+
+
+.time-of-day {
+	padding: 0 0 0 3px;
+	&::before { font-weight: 600; }
+	@include typed(
+		" SUNIL REGMI",
+		1,
+		(caret-width: 2px, caret-space: 2px)
+	);
+}
+.time-of-day1 {
+	padding: 0 0 0 3px;
+
+	&::before { font-weight: 600; }
+	@include typed(
+		"DEVELOPMENT",
+		1,
+		(caret-width: 2px, caret-space: 2px)
+	);
+}
+
+
+// header .content end
+
+
+
+@media only screen and (max-width: 750px) {
+  
+}
+
+@media only screen and (max-width: 989px) {
+  .check {
+   }
+}
+
+// Animate bounce
+.animate-bounce{
+  animation: q-bounce 1s linear 
+}
+@keyframes q-bounce { 
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg)}
+  100% {
+    transform: rotate3d(0, 0, 1, 360deg)}
+}

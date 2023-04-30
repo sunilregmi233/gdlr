@@ -1,29 +1,26 @@
 <template>
-  <div class=" my-card1 q-pa-md  items-start row q-gutter-md">
+  <div class=" my-card1   items-start row q-gutter-lg">
     <div class="col caro-content">
-      <q-card class="my-card  text-black flex justify-between">
-      <q-card-section>
-        <div class="text-h4">Our Changing Planet</div>
-        <div class="text-h6">by John Doe</div>
-      </q-card-section>
+      <q-card class="my-card   text-black flex justify-between">
+        <q-card-section>
+          <div class="text-h4">My Skills</div>
+          <div class="text-h6">by John Doe</div>
+        </q-card-section>
 
-      <q-card-section class="text-h4">
-        {{ lorem }}
-      </q-card-section>
+        <q-card-section class="text-h4">
+          {{ lorem }}
+        </q-card-section>
 
-      <q-separator dark />
+        <q-separator dark />
 
-      <q-card-actions>
-        <q-btn color="green">
-          <q-icon left size="3em" name="map" />
-          <div>Label</div>
-        </q-btn>
-        <q-btn color="green">
-          <q-icon left size="3em" name="map" />
-          <div>Label</div>
-        </q-btn>
-      </q-card-actions>
-    </q-card>
+        <q-card-actions>
+          <q-btn color="green">
+            <q-icon left size="3em" name="map" />
+            <div>Label</div>
+          </q-btn>
+            
+        </q-card-actions>
+      </q-card>
     </div>
     <div class="col">
       <swiper
@@ -78,37 +75,29 @@
   </div>
 </template>
 
-<style lang="sass" scoped>
-.my-card1
-  margin: 20px 20px 20px 20px
+<style lang="scss" scoped>
+.caro-content{
+  top: 200px;
+}
+.swiper {
+  width: 100%;
+  height: 55vh;
+}
 
-.my-card
-  width: 100%
-  height: 100%
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
 
-.swiper 
-  width: 100%
-  height: 65vh
-  padding-top: 50px
-  padding-bottom: 50px
-
-
-.swiper-slide 
-  background-position: center
-  background-size: cover
-  width: 300px
-  height: 300px
-
-
-.swiper-slide img 
-  display: block
-  width: 50vh
-
-.caro-content
-  height: 650px
-  width: 100px
-  background: red
-  
+.swiper-slide img {
+  width: 50vh;
+}
+.caro-content{
+  height: 650px;
+  width: 100px;
+} 
 </style>
 
 <script>
@@ -133,7 +122,7 @@ export default {
   setup() {
     return {
       modules: [Autoplay, EffectCoverflow, Pagination],
-      lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+      lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     };
   },
 };

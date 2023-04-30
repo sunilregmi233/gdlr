@@ -10,15 +10,13 @@
     :modules="modules"
     class="mySwiper"
   >
-    <swiper-slide>Slide 1</swiper-slide>
-    <swiper-slide>Slide 2</swiper-slide>
-    <swiper-slide>Slide 3</swiper-slide>
-    <swiper-slide>Slide 4</swiper-slide>
-    <swiper-slide>Slide 5</swiper-slide>
-    <swiper-slide>Slide 6</swiper-slide>
-    <swiper-slide>Slide 7</swiper-slide>
-    <swiper-slide>Slide 8</swiper-slide>
-    <swiper-slide>Slide 9</swiper-slide>
+    <swiper-slide>I am a ...</swiper-slide>
+    <swiper-slide>Cross-platform <br> Developer</swiper-slide>
+    <swiper-slide>ML and AI <br> Engineer</swiper-slide>
+    <swiper-slide>IT Project Manager</swiper-slide>
+    <swiper-slide>Scrum master</swiper-slide>
+    <swiper-slide>DevOps <br> Engineer</swiper-slide>
+    <swiper-slide>and currently <br>a Lecturer at <br> Kathmandu <br> University.</swiper-slide>
   </swiper>
 </template>
 <script>
@@ -48,15 +46,13 @@
 </script>
 
 <style lang="scss" scoped>
-
 .swiper {
   position: absolute;
-  left: 80rem;
-  top: 15rem;
-  width: 400px;
-  height: 500px;
+  left: 70%;
+  top: 25%;
+  width: 250px;
+  height: 350px;
 }
-
 .swiper-slide {
   display: flex;
   align-items: center;
@@ -64,48 +60,47 @@
   border-radius: 18px;
   font-size: 22px;
   font-weight: bold;
-  color: #fff;
+  color: #ffffff;
 }
 
 .swiper-slide:nth-child(1n) {
-  background: rgb(42,2,23);
-  background: linear-gradient(90deg, rgba(42,2,23,0.8939950980392157) 0%, rgba(68,230,217,1) 99%);
+  background: $info;
 }
 
 .swiper-slide:nth-child(2n) {
-  background-color: #fff
+  background: $info;
 }
 
 .swiper-slide:nth-child(3n) {
-  background-color: #fff
+  background-color: $info;
 }
 
 .swiper-slide:nth-child(4n) {
-  background-color: #fff
+  background-color: $info;
 }
 
 .swiper-slide:nth-child(5n) {
-  background-color: #fff
+  background-color: $info;
 }
 
 .swiper-slide:nth-child(6n) {
-  background-color: #fff
+  background-color: $info;
 }
 
 .swiper-slide:nth-child(7n) {
-  background-color: #fff
+  background-color: $info;
 }
 
 .swiper-slide:nth-child(8n) {
-  background-color: #fff
+  background-color: $info;
 }
 
 .swiper-slide:nth-child(9n) {
-  background-color: #fff
+  background-color: $info;
 }
 
 .swiper-slide:nth-child(10n) {
-  background-color: #fff
+  background-color: $info;
 }
 
 </style>

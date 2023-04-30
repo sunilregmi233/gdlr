@@ -11,19 +11,19 @@ const routes = [
     //   { path: '', component: () => import('pages/IndexPage.vue') }
     // ]
   },
-  // {
-  //   path: '/about',
-  //   component: () => import('../pages/About/index.vue'),
+  {
+    path: '/main',
+    component: () => import('../layouts/MainLayout.vue'),
     
-  // },
+  },
   {
     path: '/admin/login',
     component: () => import('../pages/Auth/Login.vue'),
     
   },
   {
-    path: '/services',
-    component: () => import('../pages/ErrorNotFound.vue'),
+    path: '/test',
+    component: () => import('../layouts/PortfolioLayout.vue'),
     
   },
   {

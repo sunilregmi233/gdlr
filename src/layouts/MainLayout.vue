@@ -1,116 +1,178 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
+  <div class="header">
+    <q-header elevated class=" text-white">
+      <nav>
+        <label class="logo">SureSoft</label>  
+        <q-tabs v-model="tab" shrink stretch class="tabs ">
+          <q-route-tab name="tab1" label="About" @click="scrollToElement('id_about');" />
+          <q-route-tab name="tab2" label="Servicess" @click="scrollToElement('id_services');" />
+          <q-route-tab name="tab2" label="Projects" @click="scrollToElement('id_projects'); " />
+          <q-route-tab name="tab2" label="Team" to="/Team" />
+          <q-route-tab name="tab4" label="BLOG" to="/blog" />
+          <q-route-tab name="tab3" label="CONTACT" @click="scrollToElement('footer');" />
+        </q-tabs>
+        <div id="check">
+            <q-btn flat @click="drawer = !drawer" round dense icon="menu" />
+          </div>
+      </nav> 
+      
     </q-header>
-
     <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
+        v-model="drawer"
+        
+        :width="200"
+        :breakpoint="500"
+        overlay
+        bordered
+        :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-3'"
+      >
+        <q-scroll-area class="fit">
+          <q-list>
 
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
+            <template v-for="(menuItem, index) in menuList" :key="index">
+              <q-item clickable :active="menuItem.label === 'Outbox'" v-ripple>
+                <q-item-section avatar>
+                  <q-icon :name="menuItem.icon" />
+                </q-item-section>
+                <q-item-section>
+                  {{ menuItem.label }}
+                </q-item-section>
+              </q-item>
+              <q-separator :key="'sep' + index" v-if="menuItem.separator" />
+            </template>
 
-    <q-page-container>
-      <router-view />
-    </q-page-container>
+          </q-list>
+        </q-scroll-area>
+      </q-drawer>
+  </div>
+   <div class="body1">
+    <BaseSwiperCard/>
+    <BaseFooter/>
+    </div>
+    <div class="body2" id="id_about">
+      <div class="container2">
+        <BaseCard/>
+      </div>
+    </div>
+    <div class="body2" id="id_services">
+      <div class="container2">
+        <Services/>
+      </div>
+    </div>
+    <div class="body2" id="id_projects">
+      <div class="container2">
+        <Projects/>
+      </div>
+    </div>
+    <div class="body2" id="id_contact">
+      <div class="container2">
+      </div>
+    </div>
+   
+
+   
   </q-layout>
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
+import { defineComponent, reactive, ref } from 'vue'
+import { scroll } from 'quasar'
 
-const linksList = [
+const { getScrollTarget, setVerticalScrollPosition,  } = scroll
+const menuList = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    icon: 'inbox',
+    label: 'About',
+    separator: true
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+    icon: 'send',
+    label: 'Services',
+    separator: false
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    icon: 'delete',
+    label: 'Projects',
+    separator: false
   },
   {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
+    icon: 'error',
+    label: 'Team',
+    separator: true
   },
   {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
+    icon: 'settings',
+    label: 'Blog',
+    separator: false
   },
   {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
+    icon: 'feedback',
+    label: 'Contact',
+    separator: false
   },
   {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    icon: 'help',
+    iconColor: 'primary',
+    label: 'Help',
+    separator: false
   }
 ]
-
 export default defineComponent({
   name: 'MainLayout',
-
-  components: {
-    EssentialLink
-  },
-
+  
   setup () {
-    const leftDrawerOpen = ref(false)
-
+    function scrollToElement (id) {
+      let el = document.getElementById(id)
+      const target = getScrollTarget(el)
+      const offset = el.offsetTop
+      const duration = 1000
+      setVerticalScrollPosition(target, offset, duration)
+    }
     return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
+      scrollToElement,
+      menuList,
+      drawer: ref(false),  
     }
   }
 })
 </script>
+
+<style lang="scss" >
+.main-body {
+  background: rgb(255, 255, 255);
+}
+#check {
+    display: none;
+  }
+.body1 {
+  position: relative;
+  height: 105vh;
+
+}
+.body2 {
+  position: relative;
+  //margin: 0 10vw;
+  height: 100vh;
+
+
+}
+.container2 {
+  position: relative;
+  top: 20%;
+  margin: 0 5% 0 5% ;
+  height: 75vh;
+}
+
+@media only screen and (max-width: 952px) {
+  #check {
+    position: absolute;
+    display: initial;
+    left: 85%;
+    padding: 20px;
+  }
+  .q-tabs {
+    display: none;
+  }
+}
+</style>
