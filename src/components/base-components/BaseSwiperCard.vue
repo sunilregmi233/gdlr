@@ -10,13 +10,13 @@
     :modules="modules"
     class="mySwiper"
   >
-    <swiper-slide>I am a ...</swiper-slide>
-    <swiper-slide>Cross-platform <br> Developer</swiper-slide>
-    <swiper-slide>ML and AI <br> Engineer</swiper-slide>
-    <swiper-slide>IT Project Manager</swiper-slide>
-    <swiper-slide>Scrum master</swiper-slide>
-    <swiper-slide>DevOps <br> Engineer</swiper-slide>
-    <swiper-slide>and currently <br>a Lecturer at <br> Kathmandu <br> University.</swiper-slide>
+    <swiper-slide>My Expertise on ...</swiper-slide>
+    <swiper-slide>Cross-platform <br> Development</swiper-slide>
+    <swiper-slide>ML and AI <br> Applications</swiper-slide>
+    <swiper-slide>IT Project <br> Management</swiper-slide>
+    <swiper-slide>Agile Methodologies</swiper-slide>
+    <swiper-slide>DevOps </swiper-slide>
+    <swiper-slide>I am currently <br>a Lecturer at <br> Kathmandu <br> University.</swiper-slide>
   </swiper>
 </template>
 <script>

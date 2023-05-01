@@ -1,5 +1,5 @@
 <template lang="">
-    <div style="background: #f7f7f7; height: 100%;" id="id_services">
+    <div style="background: #f7f7f7; " id="id_services">
         <div class="row">
         <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
             <h5 class="text-center">My Services

@@ -13,7 +13,7 @@
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
 $primary   : #1976D2;
-$secondary : linear-gradient(90deg, rgba(1,2,20,1) 0%, rgba(185,255,252,1) 99%);
+$secondary : linear-gradient(90deg, rgb(193, 194, 222) 0%, rgba(185,255,252,1) 99%);
 $accent    : #9C27B0;
 
 $dark      : #1D1D1D;
@@ -21,7 +21,9 @@ $dark-page : #121212;
 
 $positive  : #21BA45;
 $negative  : #C10015;
-$info      : #1BB056;
+$info      : #008e26;
+// $info      : #1BB056;
+
 $warning   : #F2C037;
 
 $text: black;

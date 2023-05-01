@@ -8,7 +8,9 @@ import BaseCaro from 'components/base-components/BaseCaro.vue'
 import BaseSwiperCard from 'components/base-components/BaseSwiperCard.vue'
 import About from 'components/About.vue'
 import Services from 'components/Services.vue'
-import Projects from 'components/Projects.vue'
+import Contact from 'src/components/Contact.vue'
+import Projects from 'src/components/Projects.vue'
+import Footer from 'src/components/Footer.vue'
 
 
 
@@ -22,7 +24,9 @@ export default boot(async ({ app, router }) => {
   app.component('BaseFooter', BaseFooter);
   app.component('BaseCaro', BaseCaro);
   app.component('Services', Services);
+  app.component('Contact', Contact);
   app.component('Projects', Projects);
+  app.component('Footer', Footer);
   app.component('BaseSwiperCard', BaseSwiperCard);
 
 })

@@ -1,7 +1,7 @@
 <template>
   <div class=" my-card1   items-start row q-gutter-lg">
     <div class="col caro-content">
-      <q-card class="my-card   text-black flex justify-between">
+      <q-card class="my-card no-box-shadow  text-black flex justify-between">
         <q-card-section>
           <div class="text-h4">My Skills</div>
           <div class="text-h6">by John Doe</div>
@@ -77,11 +77,13 @@
 
 <style lang="scss" scoped>
 .caro-content{
-  top: 200px;
+  position: relative;
+  
 }
 .swiper {
   width: 100%;
   height: 55vh;
+
 }
 
 .swiper-slide {
